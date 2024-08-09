@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/Total.module.css";
-import { itemContext } from "../context/itemContext";
+import { itemContext } from "../itemContext";
 import { useContext } from "react";
 
 function Navbar() {

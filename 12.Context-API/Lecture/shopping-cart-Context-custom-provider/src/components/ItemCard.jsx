@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/ItemCard.module.css";
 import { useContext } from "react";
-import { itemContext } from "../context/itemContext";
+import { itemContext } from "../itemContext";
 
 function ItemCard({ name, price }) {
   const { total, setTotal, item, setItem } = useContext(itemContext);
