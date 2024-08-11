@@ -1,10 +1,22 @@
 import React from "react";
 import styles from "../styles/ItemCard.module.css";
-import { useContext } from "react";
-import { itemContext, useCustomHook } from "../itemContext";
+import { useValue } from "../itemContext";
 
 function ItemCard({ name, price }) {
-  const { handleAdd, handleRemove } = useCustomHook();
+  const { handleAdd, handleRemove } = useValue();
+
+  // const handleAdd = () => {
+  //   setTotal(total + price);
+  //   setItem(item + 1);
+  // };
+
+  // const handleRemove = () => {
+  //   if (total <= 0) {
+  //     return;
+  //   }
+  //   setTotal((prevState) => prevState - price);
+  //   setItem(item - 1);
+  // };
 
   return (
     <div className={styles.itemCard}>
@@ -14,7 +26,10 @@ function ItemCard({ name, price }) {
         <button className={styles.itemButton} onClick={() => handleAdd(price)}>
           Add
         </button>
-        <button className={styles.itemButton} onClick={() => handleRemove(price)}>
+        <button
+          className={styles.itemButton}
+          onClick={() => handleRemove(price)}
+        >
           Remove
         </button>
       </div>
