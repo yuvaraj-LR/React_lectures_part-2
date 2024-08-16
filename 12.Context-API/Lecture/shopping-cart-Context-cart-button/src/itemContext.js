@@ -36,9 +36,6 @@ function CustomItemContext({ children }) {
       return;
     }
 
-    console.log(total, "tottlll...");
-    console.log(prod, "porddd..");
-
     const index = cart.findIndex(x => x.id === prod.id);
 
     if(index !== -1) {

@@ -10,6 +10,8 @@ export const usePostsValue = () => {
 export const PostContextProvider = ({ children }) => {
   const [savedPosts, setSavedPosts] = useState([]);
 
+  console.log(savedPosts, "postss....");
+
   const resetPosts = () => setSavedPosts([]);
 
   const savePost = (post) => {
@@ -21,10 +23,14 @@ export const PostContextProvider = ({ children }) => {
   };
 
   // create a function to unsave post here
-
+  const unsavePost = (id) => {
+    const updatedPosts = savedPosts.filter((post) => post.id !== id);
+    setSavedPosts(updatedPosts);
+  };
+ 
   return (
     <postContext.Provider
-      value={{ savedPosts, setSavedPosts, resetPosts, savePost }}
+      value={{ savedPosts, setSavedPosts, resetPosts, savePost, unsavePost }}
     >
       {children}
     </postContext.Provider>
