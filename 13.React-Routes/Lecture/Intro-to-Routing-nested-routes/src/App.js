@@ -7,6 +7,7 @@ import {
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Items from "./pages/Items";
+import ItemDetail from "./pages/ItemDetails";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -28,8 +29,13 @@ function App() {
       element: <Navbar />,
       children: [
         { index: true, element: <Home /> },
-        { path: "/about", element: <About /> },
-        { path: "/items", element: <Items /> },
+        { path: "about", element: <About /> },
+        { path: "items", 
+          children: [
+            { index: true, element: <Items /> },
+            { path: ":id", element: <ItemDetail />}
+          ] 
+        },
       ],
     },
   ]);
