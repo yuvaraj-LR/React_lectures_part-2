@@ -1,20 +1,20 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 function Navbar() {
   return (
     <>
       <div className="nav">
-        <Link to="/">
+        <NavLink to="/" style={({isActive}) => isActive ? {color: "red"} : undefined}>
           <h4>HOME</h4>
-        </Link>
+        </NavLink>
 
-        <Link to="/about">
+        <NavLink to="/about" style={({isActive}) => isActive ? {color: "red"} : undefined}>
           <h4>ABOUT</h4>
-        </Link>
+        </NavLink>
 
-        <Link to="/items">
+        <NavLink to="/items" style={({isActive}) => isActive ? {color: "red"} : undefined}>
           <h4>ITEMS</h4>
-        </Link>
+        </NavLink>
       </div>
       <Outlet />
     </>
