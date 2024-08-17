@@ -7,6 +7,7 @@ import {
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Items from "./pages/Items";
+import ErrorPage from "./pages/ErrorPage";
 import ItemDetail from "./pages/ItemDetails";
 import Navbar from "./components/Navbar";
 
@@ -27,6 +28,7 @@ function App() {
     {
       path: "/",
       element: <Navbar />,
+      errorElement: <ErrorPage />,
       children: [
         { index: true, element: <Home /> },
         { path: "about", element: <About /> },
