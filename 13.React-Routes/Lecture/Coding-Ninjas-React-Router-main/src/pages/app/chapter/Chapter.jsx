@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "./Chapter.module.css";
 
-function Chapter() {
+function Chapter(props) {
+  console.log(props, "propss..");
+  // const {chapter, title, description, details, video} = props?.props;
+
   return (
     <div>
-      <h1>**CHAPTER TITLE**</h1>
-      <h2>**CHAPTER DESCRIPTION**</h2>
-      <p className={styles.para}>**CHAPTER**</p>
+      <h1>{props?.props?.title}</h1>
+      <h2>{props?.props?.details}</h2>
+      <p className={styles.para}>Chapter</p>
       <br />
       <br />
       <div className={styles.videos}>
@@ -14,7 +17,7 @@ function Chapter() {
         <iframe
           width="800"
           height="560"
-          src=""
+          src={props?.props?.video}
           title="React Video"
           frameborder="1"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
