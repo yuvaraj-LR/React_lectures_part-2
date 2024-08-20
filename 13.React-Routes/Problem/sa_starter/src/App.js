@@ -17,6 +17,11 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // create high-level protected route below
+  const PrivateRoute = ({children}) => {
+    if(!isLoggedIn) return <Navigate to="/" />
+
+    return children;
+  }
 
   // protect the routes for the contact, list and item details pages
   const router = createBrowserRouter([
@@ -31,18 +36,30 @@ export default function App() {
         },
         {
           path: "/contact",
-          element: <Contact />
+          element: (
+            <PrivateRoute>
+              <Contact />
+            </PrivateRoute>
+          ) 
         },
         {
           path: "/list",
           children: [
             {
               index: true,
-              element: <List />
+              element: (
+                <PrivateRoute>
+                  <List />
+                </PrivateRoute>
+              ) 
             },
             {
               path: ":itemId",
-              element: <ItemDetails />
+              element: (
+                <PrivateRoute>
+                  <ItemDetails />
+                </PrivateRoute>
+              ) 
             }
           ]
         }
