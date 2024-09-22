@@ -1,8 +1,9 @@
 
 // import {ADD_NOTE, DELETE_NOTE} from "../actions/noteActions";
 
-const { createSlice } = require("@reduxjs/toolkit");
+import { useSelector } from "react-redux";
 
+const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState={
     notes:[{text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam'
@@ -31,6 +32,7 @@ const noteSlice = createSlice({
 
 export const noteReducer = noteSlice.reducer;
 export const noteActions = noteSlice.actions;
+export const noteSelector = (state) => state.noteReducer.notes;
 
 // export function noteReducer(state=initialState, action){
 //     switch(action.type){

@@ -1,5 +1,6 @@
-const { createSlice } = require("@reduxjs/toolkit")
+import { useSelector } from "react-redux";
 
+const { createSlice } = require("@reduxjs/toolkit")
 
 const initialState={
     todos:[
@@ -34,6 +35,7 @@ const todoSlice = createSlice({
 
 export const todoReducer = todoSlice.reducer;
 export const todoActions = todoSlice.actions;
+export const todoSelectors = (state) => state.todoReducer.todos;
 
 
 // Reducer using redux
